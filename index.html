@@ -21,7 +21,6 @@
             justify-content: center;
             padding: 20px;
             position: relative;
-            overflow: hidden;
         }
 
         body::before {
@@ -137,6 +136,39 @@
             color: #7c3aed;
         }
 
+        .warning-section {
+            margin-top: 60px;
+            padding: 24px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+        }
+
+        .warning-section h3 {
+            color: #fca5a5;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .warning-section ul {
+            list-style: none;
+            text-align: left;
+            color: #a0aec0;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .warning-section li {
+            margin-bottom: 8px;
+        }
+
+        .warning-section li::before {
+            content: '⚠ ';
+            color: #fca5a5;
+            margin-right: 6px;
+        }
+
         @media (max-width: 640px) {
             h1 {
                 font-size: 42px;
@@ -168,6 +200,19 @@
             <div class="feature-item">Completely local</div>
             <div class="feature-item">Semantic search</div>
             <div class="feature-item">No setup required</div>
+        </div>
+
+        <div class="warning-section">
+            <h3>🚧 EARLY Engineering Demo – Use at Your Own Risk</h3>
+            <ul>
+                <li>Search may return empty results (Files downloadable; grey boxes in search results) or fail unexpectedly</li>
+                <li>PDF parsing is unreliable in some cases (OCR not fully functional)</li>
+                <li>Large files (>100MB) may cause the app to hang</li>
+                <li>Database can become corrupted if the app crashes during indexing</li>
+                <li>Performance is untested with thousands of documents</li>
+                <li>Windows Defender may flag the installer as untrusted (it's safe)</li>
+                <li>Installation and initial load is extremely slow</li>
+            </ul>
         </div>
 
         <footer>

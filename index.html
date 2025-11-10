@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #000;
             color: #fff;
             min-height: 100vh;
@@ -20,141 +20,111 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.05) 0%, transparent 50%);
+            animation: bgShift 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes bgShift {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 600px;
             width: 100%;
-        }
-
-        header {
             text-align: center;
-            margin-bottom: 60px;
         }
 
-        .logo {
-            font-size: 48px;
-            font-weight: 700;
+        h1 {
+            font-size: 64px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
             background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
         }
 
-        h1 {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .tagline {
-            font-size: 20px;
-            color: #a0aec0;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(167, 139, 250, 0.1);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature {
-            text-align: center;
-        }
-
-        .feature-icon {
-            font-size: 36px;
-            margin-bottom: 12px;
-        }
-
-        .feature h3 {
+        .subtitle {
             font-size: 18px;
-            margin-bottom: 8px;
-            color: #e2e8f0;
-        }
-
-        .feature p {
-            font-size: 14px;
             color: #a0aec0;
-        }
-
-        .cta-section {
-            text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
+            font-weight: 300;
+            line-height: 1.6;
         }
 
         .download-btn {
             display: inline-block;
-            padding: 16px 48px;
+            padding: 14px 42px;
             background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 15px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: none;
             cursor: pointer;
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
         }
 
         .download-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 30px 60px rgba(124, 58, 237, 0.4);
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
         }
 
         .download-btn:active {
-            transform: translateY(-2px);
+            transform: translateY(0);
         }
 
-        .version-info {
-            font-size: 14px;
+        .features {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-top: 40px;
+        }
+
+        .feature-item {
+            font-size: 13px;
             color: #64748b;
-            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .screenshots {
-            margin-bottom: 60px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(167, 139, 250, 0.1);
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .screenshots h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .screenshot-placeholder {
-            background: rgba(124, 58, 237, 0.1);
-            border: 2px dashed rgba(124, 58, 237, 0.3);
-            border-radius: 12px;
-            padding: 60px 20px;
-            color: #a0aec0;
+        .feature-item::before {
+            content: '•';
+            color: #7c3aed;
+            font-weight: bold;
         }
 
         footer {
-            text-align: center;
+            margin-top: 80px;
             padding-top: 40px;
             border-top: 1px solid rgba(167, 139, 250, 0.1);
+            font-size: 13px;
             color: #64748b;
-            font-size: 14px;
         }
 
         footer a {
@@ -167,113 +137,48 @@
             color: #7c3aed;
         }
 
-        .grid-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(167, 139, 250, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(167, 139, 250, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             h1 {
-                font-size: 36px;
+                font-size: 42px;
             }
 
-            .tagline {
+            .subtitle {
                 font-size: 16px;
             }
 
             .features {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 24px;
+                gap: 16px;
+                margin-top: 40px;
+                padding-top: 30px;
             }
 
-            .download-btn {
-                padding: 14px 40px;
-                font-size: 14px;
+            .feature-item {
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="grid-background"></div>
-    
-    <div class="content">
-        <div class="container">
-            <header>
-                <div class="logo">⚡ Inkling</div>
-                <h1>Search Your Local Documents</h1>
-                <p class="tagline">Fast, semantic search across PDFs, text files, and documents — all running locally on your machine.</p>
-            </header>
-
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Semantic Search</h3>
-                    <p>Find what you need with AI-powered understanding, not just keywords.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <h3>100% Local</h3>
-                    <p>Your data never leaves your machine. Complete privacy guaranteed.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Instant indexing and search across your entire document library.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📦</div>
-                    <h3>No Setup</h3>
-                    <p>Download, install, and start searching. Everything is bundled.</p>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <button class="download-btn" onclick="downloadInkling()">
-                    ⬇ Download Inkling v0.1.0
-                </button>
-                <div class="version-info">
-                    Windows 64-bit • ~500 MB • <a href="https://drive.google.com/file/d/11eeA60BUhVCU6ESCajdCPLs89PPO5rRW/view?usp=sharing" style="color: #a78bfa;">View on GitHub</a>
-                </div>
-            </div>
-
-            <div class="screenshots">
-                <h2>Coming Soon</h2>
-                <div class="screenshot-placeholder">
-                    Screenshots will appear here in the next update
-                </div>
-            </div>
-
-            <footer>
-                <p>Made with ❤️ by <a href="https://github.com/tskoduru">@tskoduru</a></p>
-                <p style="margin-top: 8px; font-size: 12px;">
-                    <a href="https://github.com/tskoduru/inkling-app">GitHub</a> • 
-                    <a href="https://github.com/tskoduru/inkling-app/issues">Issues</a> • 
-                    <a href="https://github.com/tskoduru/inkling-app/releases">Releases</a>
-                </p>
-            </footer>
+    <div class="container">
+        <h1>Inkling</h1>
+        <p class="subtitle">Search your documents locally with AI-powered semantic understanding</p>
+        <button class="download-btn" onclick="downloadInkling()">Download</button>
+        
+        <div class="features">
+            <div class="feature-item">Completely local</div>
+            <div class="feature-item">Semantic search</div>
+            <div class="feature-item">No setup required</div>
         </div>
+
+        <footer>
+            <p>Made with ❤️ by <a href="https://github.com/tskoduru">@tskoduru</a></p>
+        </footer>
     </div>
 
     <script>
         function downloadInkling() {
-            // This will trigger download of the zip file
-            // You'll host this zip on GitHub Releases
-            window.location.href = 'https://github.com/tskoduru/inkling-app/releases/download/v0.1.0/Inkling_v0.1.0.zip';
+            // Replace with your actual Google Drive file ID
+            window.location.href = 'https://drive.google.com/file/d/11eeA60BUhVCU6ESCajdCPLs89PPO5rRW/view?usp=sharing';
         }
     </script>
 </body>
